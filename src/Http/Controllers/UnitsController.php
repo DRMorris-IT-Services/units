@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 
 use duncanrmorris\units\App\units;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UnitsController extends Controller
 {
@@ -43,6 +44,27 @@ class UnitsController extends Controller
     public function store(Request $request)
     {
         //
+        $unit_id = Str::random(60);
+
+        units::create([
+            'unit_id' => $unit_id,
+            'client' => $request['client'],
+            'name' => $request['name'],
+            'description' => $request['description'],
+            'model' =>  $request['model'],
+            'serial_no' => $request['serial_no'],
+            'barcode_no' =>  $request['barcode'],
+            'manufactured_date' => $request['manufactured_date'],
+            'warranty_date' =>  $request['warranty_date'],
+            'firmware_no' =>  $request['firmware_no'],
+            'software_no' => $request['software_no'],
+            'last_calibration_date' => $request['last_calibration'],
+            'next_calibration_date' => $request['next_calibration'],
+            'notes' => $request['notes'],
+            'status' => 'Review Pending',
+        ]);
+
+        return redirect('/units')->withstatus('Unit Successfully Created');
     }
 
     /**
