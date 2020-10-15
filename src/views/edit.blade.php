@@ -34,6 +34,10 @@
                 <a class="nav-link " id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="true">Notes</a>
               </li>
 
+              <li class="nav-item">
+              <a class="nav-link bg-danger text-white" id="del-tab" data-toggle="modal" data-target="#invoice_del" role="tab" aria-controls="del" aria-selected="true">DELETE</a>
+              </li>
+
               
             
             
@@ -171,6 +175,36 @@
                     </div>
                     </form>
                     
+
+                    <!-- MODAL DELETE INVOICE -->
+                    <form class="col-md-12" action="{{ route('units.del',['id' => $un->unit_id]) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+        
+        <div class="modal fade" id="invoice_del" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="exampleModalLongTitle">REMOVE Unit??</h5>
+            </div>
+            <div class="modal-body">
+            
+            <h3><i class="fa fa-warning" ></i> WARNING!!</h3>
+            <h5>You are going to remove this unit, are you sure?</h5>
+            <h5>This action can <b><u>NOT BE UNDONE!</u></b></h5>
+                
+            </div>
+            <div class="modal-footer card-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">DELETE</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        </form>
+
+        <!-- END MODAL FOR DELETE CLIENT --> 
+
                      
                 </div>
             </div>

@@ -10,7 +10,7 @@ Route::group(['namespace' => 'duncanrmorris\units\Http\Controllers'], function()
     Route::get('units/view/{id}', 'UnitsController@show')->name('units.view');
     Route::get('units/edit/{id}', 'UnitsController@edit')->name('units.edit');
     Route::put('units/update/{id}', 'UnitsController@update')->name('units.update');
-
+    Route::put('units/delete/{id}', 'UnitsController@destroy')->name('units.del');
    
 
     });

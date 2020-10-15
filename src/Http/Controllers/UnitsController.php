@@ -139,8 +139,13 @@ class UnitsController extends Controller
      * @param  \App\units  $units
      * @return \Illuminate\Http\Response
      */
-    public function destroy(units $units)
+    public function destroy($id)
     {
         //
+
+        units::where('unit_id',$id)
+        ->delete();
+
+        return redirect('/units')->withdelete(__('Unit successfully removed.'));
     }
 }
