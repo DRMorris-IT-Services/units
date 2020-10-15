@@ -7,8 +7,34 @@
 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="home-tab" href="{{route('units')}}" role="tab" aria-controls="home" aria-selected="true">List</a>
+              <a class="nav-link" id="home-tab" href="{{route('units')}}" role="tab" aria-controls="home" aria-selected="true">List</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Details</a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Client</a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Manufacturing & Warranty</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Versions</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Calibration</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Notes</a>
+              </li>
+
+              
             
             
           </ul>

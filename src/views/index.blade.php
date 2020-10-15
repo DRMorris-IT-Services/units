@@ -49,7 +49,7 @@
                                                 <td>
                                                     <a href="{{route('units.view',['id' => $un->unit_id])}}" ><button class="btn btn-outline-info btn-sm fa fa-eye"></button></a>
                                                     <button class="btn btn-outline-warning btn-sm fa fa-edit"></button>
-                                                    <button class="btn btn-outline-danger btn-sm fa fa-trash"></button>
+                                                    
                                                 </td>
                                             </tr>
                                         @endforeach
