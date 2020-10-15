@@ -11,27 +11,27 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Details</a>
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Details</a>
               </li>
 
             <li class="nav-item">
-                <a class="nav-link" id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Client</a>
+                <a class="nav-link" id="clients-tab" data-toggle="tab" href="#clients" role="tab" aria-controls="clients" aria-selected="true">Client</a>
               </li>
 
             <li class="nav-item">
-                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Manufacturing & Warranty</a>
+                <a class="nav-link " id="manu-tab" data-toggle="tab" href="#manu" role="tab" aria-controls="manu" aria-selected="true">Manufacturing & Warranty</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Versions</a>
+                <a class="nav-link " id="version-tab" data-toggle="tab" href="#version" role="tab" aria-controls="version" aria-selected="true">Versions</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Calibration</a>
+                <a class="nav-link " id="cal-tab" data-toggle="tab" href="#cal" role="tab" aria-controls="cal" aria-selected="true">Calibration</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link " id="home-tab" href="#" role="tab" aria-controls="home" aria-selected="true">Notes</a>
+                <a class="nav-link " id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="true">Notes</a>
               </li>
 
               
@@ -46,78 +46,111 @@
 
                 <div class="card-body">
                    
-               
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                    <b>Name</b>
+                                    <p>{{$un->name}}</p>
+                                    </div>
+                                </div>
 
-                    <div class="form-group">
-                    <label>Name</label>
-                    <p>{{$un->name}}</p>
-                    </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <b>Description</b>
+                                        <p>{{$un->description}}</p>
+                                        </div>
+                                </div>
 
-                        <div class="form-group">
-                        <label>Description</label>
-                        <p>{{$un->description}}</p>
-                        </div>
-
-                            <div class="form-group">
-                            <label>Model</label>
-                            <p>{{$un->model}}</p>
+                                <div class="col-4">
+                                        <div class="form-group">
+                                        <b>Status</b>
+                                        <p>{{$un->status}}</p>
+                                        </div>
+                                </div>
+                                
                             </div>
 
-                                <div class="form-group">
-                                <label>Serial Number</label>
-                                <p>{{$un->serial_no}}</p>
+                            <div class="row">
+
+                                <div class="col-4">
+                                        <div class="form-group">
+                                        <b>Model</b>
+                                        <p>{{$un->model}}</p>
+                                        </div>
+                                </div>
+
+                                <div class="col-4">
+                                        <div class="form-group">
+                                        <b>Serial Number</b>
+                                        <p>{{$un->serial_no}}</p>
+                                        </div>
+                                </div>
+                                <div class="col-4">
+                                        <div class="form-group">
+                                        <b>Barcode</b>
+                                        <p>{{$un->barcode_no}}</p>
+                                        </div>
+                                </div>
+
+                            </div>
+                                 
+
+                        </div>
+
+                        <div class="tab-pane fade show" id="clients" role="tabpanel" aria-labelledby="clients-tab">
+                            <div class="form-group">
+                                <b>Client</b>
+                                <p>{{$un->client}}</p>
+                                </div>
+                        </div>
+
+                        <div class="tab-pane fade show" id="manu" role="tabpanel" aria-labelledby="manu-tab">
+                            <div class="form-group">
+                                <b>Manufactured Date</b>
+                                <p>{{$un->manufactured_date}}</p>
                                 </div>
 
                                     <div class="form-group">
-                                    <label>Barcode</label>
-                                    <p>{{$un->barcode_no}}</p>
+                                    <b>Warranty Date</b>
+                                    <p>{{$un->warranty_date}}</p>
                                     </div>
+                        </div>
 
-                                        <div class="form-group">
-                                        <label>Manufactured Date</label>
-                                        <p>{{$un->manufactured_date}}</p>
-                                        </div>
+                        <div class="tab-pane fade show" id="version" role="tabpanel" aria-labelledby="version-tab">
+                            <div class="form-group">
+                                <b>Software Version</b>
+                                <p>{{$un->software_no}}</p>
+                                </div>
 
-                                            <div class="form-group">
-                                            <label>Warranty Date</label>
-                                            <p>{{$un->warranty_date}}</p>
-                                            </div>
+                                    <div class="form-group">
+                                    <b>Firmware Version</b>
+                                    <p>{{$un->firmware_no}}</p>
+                                    </div>
+                        </div>
 
-                                                <div class="form-group">
-                                                <label>Software Version</label>
-                                                <p>{{$un->software_no}}</p>
-                                                </div>
+                        <div class="tab-pane fade show" id="cal" role="tabpanel" aria-labelledby="cal-tab">
+                            <div class="form-group">
+                                <b>Last Calibrated</b>
+                                <p>{{$un->last_calibration_date}}</p>
+                                </div>
 
-                                                    <div class="form-group">
-                                                    <label>Firmware Version</label>
-                                                    <p>{{$un->firmware_no}}</p>
-                                                    </div>
+                                    <div class="form-group">
+                                    <b>Next Calibration</b>
+                                    <p>{{$un->next_calibration_date}}</p>
+                                    </div>
+                        </div>
 
-                                                        <div class="form-group">
-                                                        <label>Last Calibrated</label>
-                                                        <p>{{$un->last_calibration_date}}</p>
-                                                        </div>
+                        <div class="tab-pane fade show" id="notes" role="tabpanel" aria-labelledby="notes-tab">
+                            <div class="form-group">
+                                <b>Notes</b>
+                                <p>{{$un->notes}}</p>
+                                </div>
+                        </div>
 
-                                                            <div class="form-group">
-                                                            <label>Next Calibration</label>
-                                                            <p>{{$un->next_calibration_date}}</p>
-                                                            </div>
-
-                                                                <div class="form-group">
-                                                                <label>Client</label>
-                                                                <p>{{$un->client}}</p>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                <label>Notes</label>
-                                                                <p>{{$un->notes}}</p>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <label>Status</label>
-                                                                    <p>{{$un->status}}</p>
-                                                                    </div>
-
+                    </div>
+               
                     
                      
                 </div>
