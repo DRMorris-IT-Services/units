@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace duncanrmorris\units\Http\Controllers;
 
-use App\units;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+
+use duncanrmorris\units\App\units;
 use Illuminate\Http\Request;
 
 class UnitsController extends Controller
@@ -12,9 +15,13 @@ class UnitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(units $units)
     {
         //
+
+        return view('units::index',[
+            'units' => $units->paginate(15),
+        ]);
     }
 
     /**
