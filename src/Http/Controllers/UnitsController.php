@@ -73,9 +73,13 @@ class UnitsController extends Controller
      * @param  \App\units  $units
      * @return \Illuminate\Http\Response
      */
-    public function show(units $units)
+    public function show(units $units, $id)
     {
         //
+
+        return view('units::view',[
+            'units' => $units->where('unit_id',$id)->get()
+        ]);
     }
 
     /**
