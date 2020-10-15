@@ -9,6 +9,8 @@ use duncanrmorris\units\App\units;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use duncanrmorris\units\App\clients;
+
 class UnitsController extends Controller
 {
     /**
@@ -16,12 +18,15 @@ class UnitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(units $units)
+    public function index(units $units, clients $clients)
     {
         //
+        $today = date('Y-m-d');
 
         return view('units::index',[
             'units' => $units->paginate(15),
+            'clients' => $clients->get(),
+            'today' => $today
         ]);
     }
 
@@ -88,9 +93,13 @@ class UnitsController extends Controller
      * @param  \App\units  $units
      * @return \Illuminate\Http\Response
      */
-    public function edit(units $units)
+    public function edit(units $units, clients $clients, $id)
     {
         //
+        return view('units::edit',[
+            'units' => $units->where('unit_id',$id)->get(),
+            'clients' => $clients->get()
+        ]);
     }
 
     /**
@@ -100,9 +109,28 @@ class UnitsController extends Controller
      * @param  \App\units  $units
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, units $units)
+    public function update(Request $request, units $units, $id)
     {
         //
+
+        units::where('unit_id',$id)->update([
+            'client' => $request['client'],
+            'name' => $request['name'],
+            'description' => $request['description'],
+            'model' =>  $request['model'],
+            'serial_no' => $request['serial_no'],
+            'barcode_no' =>  $request['barcode'],
+            'manufactured_date' => $request['manufactured_date'],
+            'warranty_date' =>  $request['warranty_date'],
+            'firmware_no' =>  $request['firmware_no'],
+            'software_no' => $request['software_no'],
+            'last_calibration_date' => $request['last_calibration'],
+            'next_calibration_date' => $request['next_calibration'],
+            'notes' => $request['notes'],
+            'status' => $request['status'],
+        ]);
+
+        return back()->withstatus('Unit Successfully Updated');
     }
 
     /**

@@ -33,6 +33,7 @@
                                             <th>Barcode</th>
                                             <th>Description</th>
                                             <th>Manufactured Date</th>
+                                            <th>Warranty Date</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -44,11 +45,12 @@
                                                 <td>{{$un->serial_no}}</td>
                                                 <td>{{$un->barcode_no}}</td>
                                                 <td>{{$un->description}}</td>
-                                                <td>{{$un->manufactured_date}}</td>
+                                                <td>{{date('d/m/y', strtotime($un->manufactured_date))}}</td>
+                                                <td>@if($un->warranty_date < $today)<i class="fa fa-warning text-warning"></i>@endif {{date('d/m/y', strtotime($un->warranty_date))}}</td>
                                                 <td>{{$un->status}}</td>
                                                 <td>
                                                     <a href="{{route('units.view',['id' => $un->unit_id])}}" ><button class="btn btn-outline-info btn-sm fa fa-eye"></button></a>
-                                                    <button class="btn btn-outline-warning btn-sm fa fa-edit"></button>
+                                                    <a href="{{route('units.edit',['id' => $un->unit_id])}}" ><button class="btn btn-outline-warning btn-sm fa fa-edit"></button></a>
                                                     
                                                 </td>
                                             </tr>
@@ -125,6 +127,12 @@
                                                                             <div class="form-group">
                                                                             <label>Client</label>
                                                                             <input type="text" class="form-control" name="client">
+                                                                            <select class="form-control" name="client" >
+                                                                                <option></option>
+                                                                            @foreach($clients as $clients)
+                                                                                <option>{{$clients->company}}</option>
+                                                                            @endforeach
+                                                                            </select>
                                                                             </div>
 
                                                                             <div class="form-group">
